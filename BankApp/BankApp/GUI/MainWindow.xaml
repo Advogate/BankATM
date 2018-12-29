@@ -1,0 +1,54 @@
+﻿<Window x:Class="BankApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BankApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="1300">
+    <Grid Background="#FF6C90AE">
+        <Frame x:Name="Main" Margin="-6,40,6,0" Background="#FF2E62A0" Foreground="#FFD4CFCF" FontWeight="Bold" FontSize="64"/>
+        <Button x:Name="btn_ClkCusReg" Content="Customer Resigistration" HorizontalAlignment="Left" Margin="6,0,0,0" VerticalAlignment="Top" Width="209" Height="32" Click="btn_ClkCusReg_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6C6969" Offset="0"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_ClkOps" Content="Login and Operations" HorizontalAlignment="Left" Margin="246,0,0,0" VerticalAlignment="Top" Width="211" Height="32" Click="btn_ClkOps_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="1"/>
+                    <GradientStop Color="#FF6B7A89"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_TransDetail" Content="Transaction Details" HorizontalAlignment="Left" Margin="1089,3,0,0" VerticalAlignment="Top" Width="197" Height="32" Click="btn_ClkTransDetail_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FFD3D1D1" Offset="0"/>
+                    <GradientStop Color="#FFF1EDED" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_ClkJournal" Content="Journals" HorizontalAlignment="Left" Margin="837,0,0,0" VerticalAlignment="Top" Width="210" Height="32" Click="btn_ClkJournal_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0,1" StartPoint="0,0">
+                    <GradientStop Color="#FF939292" Offset="0"/>
+                    <GradientStop Color="#FFF1EFEF" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btn_BankDetails" Content="Bank Details" HorizontalAlignment="Left" Margin="529,0,0,0" VerticalAlignment="Top" Width="211" Height="32" Click="btn_ClkBnkTail_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                    <GradientStop Color="#FFF3F3F3" Offset="1"/>
+                    <GradientStop Color="#FF6B7A89"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
+        
+    </Grid>
+
+</Window>

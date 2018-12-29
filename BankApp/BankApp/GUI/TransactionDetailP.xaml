@@ -1,0 +1,113 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BankApp.GUI"
+      xmlns:MODAL="clr-namespace:BankApp.MODAL" x:Class="BankApp.GUI.TransactionDetailP"
+      mc:Ignorable="d" 
+      d:DesignHeight="300"
+      Title="TransactionDetail" Width="1077.402">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="transactionViewSource" d:DesignSource="{d:DesignInstance {x:Type MODAL:Transaction}, CreateList=True}"/>
+    </Page.Resources>
+
+    <Grid Background="#FF2E62A0" DataContext="{StaticResource transactionViewSource}">
+        <ListView x:Name="transactionListView" ItemsSource="{Binding}" Margin="0,37,0,63" SelectionMode="Single" Loaded="transactionListView_Loaded_1">
+            <ListView.ItemContainerStyle>
+                <Style>
+                    <Setter Property="Control.HorizontalContentAlignment" Value="Stretch"/>
+                    <Setter Property="Control.VerticalContentAlignment" Value="Stretch"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn x:Name="transactionIdColumn" Header="Trans Id" Width="50">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding TransactionId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="accountNoColumn" Header="Account No" Width="80">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding AccountNo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="accountNameColumn" Header="Account Name" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListBox Margin="-6,-1">
+                                    <ListBoxItem Content="{Binding AccountName}"/>
+                                </ListBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="accoountTypeColumn" Header="Accoount Type" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListBox Margin="6,-1,-6,-1">
+                                    <ListBoxItem Content="{Binding AccoountType}"/>
+                                </ListBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="recipientAccNoColumn" Header="Recipient Acc No" Width="95">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding RecipientAccNo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="recipientBankColumn" Header="Recipient Bank" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <ListBox Margin="-6,-1">
+                                    <ListBoxItem Content="{Binding RecipientBank}"/>
+                                </ListBox>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="transactionDateColumn" Header="Transaction Date" Width="100">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker Margin="-6,-1" SelectedDate="{Binding TransactionDate, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="dOJournalTimeColumn" Header="DOJournal Time" Width="90">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <DatePicker Margin="-6,-1" SelectedDate="{Binding DOJournalTime, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="depositedAmountColumn" Header="Deposited Amount" Width="110">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding DepositedAmount, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="transferedAmountColumn" Header="Transfered Amount" Width="110">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding TransferedAmount, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn x:Name="withdrawalAmountColumn" Header="Withdrawal Amount" Width="110">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBox Margin="-6,-1" Text="{Binding WithdrawalAmount, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}"/>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Page>

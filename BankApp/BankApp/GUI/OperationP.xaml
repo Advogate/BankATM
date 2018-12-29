@@ -1,0 +1,72 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BankApp.GUI"
+      xmlns:MODAL="clr-namespace:BankApp.MODAL" x:Class="BankApp.GUI.OperationP"
+      mc:Ignorable="d"
+      Title="Operation" Width="1311.407" Height="560.837">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="customerRegViewSource" d:DesignSource="{d:DesignInstance {x:Type MODAL:CustomerReg}, CreateList=True}"/>
+    </Page.Resources>
+
+    <Grid Background="#FF2E62A0">
+        <Label VerticalAlignment="Center" Margin="10,44,0,485" HorizontalAlignment="Left" Grid.Column="0" Content="Enter Account No:" Width="220" Height="32"/>
+        <TextBox x:Name="accountNoTextBox1" Width="288" VerticalAlignment="Center" Text="{Binding AccountNo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,46,0,487" Height="28" HorizontalAlignment="Left" LostKeyboardFocus="accountNoTextBox_LostKeyboardFocus"/>
+        <Label VerticalAlignment="Center" Grid.Row="0" Margin="11,195,0,336" HorizontalAlignment="Left" Grid.Column="0" Content="Account Balance:" Width="219" Height="30"/>
+        <TextBox x:Name="accountBalanceTextBox1" Width="288"  VerticalAlignment="Center" Text="{Binding AccountBalance, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="246,195,0,338" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="10,97,0,434" HorizontalAlignment="Left" Grid.Column="0" Content="Account Name:" Width="220" Height="30"/>
+        <TextBox x:Name="accountNameTextBox1" Width="288" VerticalAlignment="Center" Text="{Binding AccountName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,97,0,436" Height="28" HorizontalAlignment="Left"/>
+        <Label Content="Account Type:" Grid.Column="0" HorizontalAlignment="Left" Margin="11,148,0,387" Grid.Row="0" VerticalAlignment="Center"/>
+        <TextBlock x:Name="AccType_txtBlk" HorizontalAlignment="Left" Margin="246,146,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="28" Width="288" Background="White"/>
+        <TabControl x:Name="tabControl" Height="287" Margin="563,19,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="727">
+            <TabItem Header="Deposit" Height="30">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock x:Name="textBlock_Copy" HorizontalAlignment="Left" Margin="18,76,0,0" TextWrapping="Wrap" Text="Enter the Amount:" VerticalAlignment="Top" Height="45" Width="173"/>
+                    <TextBox x:Name="txt_DepoAmount" HorizontalAlignment="Left" Height="35" Margin="239,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="269"/>
+                    <Button x:Name="btn_Deposit" Content="Deposit" HorizontalAlignment="Left" Margin="385,132,0,0" VerticalAlignment="Top" Width="114" Height="34" Click="e_Compute"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Withdraw">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock x:Name="textBlock_Copy1" HorizontalAlignment="Left" Margin="10,22,0,0" TextWrapping="Wrap" Text="Enter the Amount:" VerticalAlignment="Top" Height="41" Width="116"/>
+                    <TextBox x:Name="txt_Withdraw" HorizontalAlignment="Left" Height="32" Margin="158,23,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Button x:Name="btn_Withdraw" Content="Withdraw" HorizontalAlignment="Left" Margin="256,74,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="e_Compute"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Transfer" Margin="-2,-2,-2,-1">
+                <Grid Background="#FFE5E5E5">
+                    <TextBlock x:Name="textBlock_Copy2" HorizontalAlignment="Left" Margin="10,94,0,0" TextWrapping="Wrap" Text="Recipient Account No:" VerticalAlignment="Top" Height="41" Width="116"/>
+                    <TextBox x:Name="txt_RecipAccNo" HorizontalAlignment="Left" Height="32" Margin="173,94,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                    <Button x:Name="btn_Transfer" Content="Transfer" HorizontalAlignment="Left" Margin="277,194,0,0" VerticalAlignment="Top" Width="76" Height="30" Click="e_Compute"/>
+                    <TextBlock x:Name="textBlock_Copy3" HorizontalAlignment="Left" Margin="10,32,0,0" TextWrapping="Wrap" Text="Recipient Bank" VerticalAlignment="Top" Height="41" Width="116"/>
+                    <ComboBox x:Name="RecipientBank_comboBox" HorizontalAlignment="Left" Margin="173,32,0,0" VerticalAlignment="Top" Width="180" Height="41">
+                        <ComboBoxItem Content="This Bank"/>
+                        <ComboBoxItem Content="Access bank"/>
+                        <ComboBoxItem Content="UBA"/>
+                        <ComboBoxItem Content="Wema Bank"/>
+                        <ComboBoxItem Content="First Bank"/>
+                        <ComboBoxItem Content="Fidelity Bank"/>
+                    </ComboBox>
+                    <TextBlock x:Name="textBlock_Copy4" HorizontalAlignment="Left" Margin="10,147,0,0" TextWrapping="Wrap" Text="Enter Amount:" VerticalAlignment="Top" Height="41" Width="116"/>
+                    <TextBox x:Name="txt_RecipTransAmount" HorizontalAlignment="Left" Height="32" Margin="173,147,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+
+        <Grid x:Name="grid1" DataContext="{StaticResource customerRegViewSource}" HorizontalAlignment="Left" Margin="10,174,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+        </Grid>
+
+
+    </Grid>
+</Page>

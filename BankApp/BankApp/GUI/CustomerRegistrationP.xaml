@@ -1,0 +1,67 @@
+﻿<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:BankApp.GUI"
+      xmlns:MODAL="clr-namespace:BankApp.MODAL" x:Class="BankApp.GUI.CustomerRegistrationP"
+      mc:Ignorable="d"
+      Title="CustomerRegistration" Background="#FF2E62A0" Height="513.5" Width="964">
+
+    <Page.Resources>
+        <CollectionViewSource x:Key="customerRegViewSource" d:DesignSource="{d:DesignInstance {x:Type MODAL:CustomerReg}, CreateList=True}"/>
+    </Page.Resources>
+
+    <Grid>
+        <Label VerticalAlignment="Center" Grid.Row="0" Margin="11,232,0,252" HorizontalAlignment="Left" Grid.Column="0" Content="Account Balance:" Width="219" Height="30"/>
+        <TextBox x:Name="accountBalanceTextBox" Width="288" VerticalAlignment="Center" Text="{Binding AccountBalance, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Grid.Row="0" Margin="246,232,0,254" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="10,198,0,286" HorizontalAlignment="Left" Grid.Column="0" Content="Account Name:" Width="220" Height="30"/>
+        <TextBox x:Name="accountNameTextBox" Width="288" VerticalAlignment="Center" Text="{Binding AccountName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,200,0,286" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="10,52,0,430" HorizontalAlignment="Left" Grid.Column="0" Content="Account No:" Width="220" Height="32"/>
+        <TextBox x:Name="accountNoTextBox" Width="288" VerticalAlignment="Center" Text="{Binding AccountNo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,54,0,432" Height="28" HorizontalAlignment="Left" LostKeyboardFocus="accountNoTextBox_LostKeyboardFocus"/>
+        <Label VerticalAlignment="Center" Margin="11,260,0,224" HorizontalAlignment="Left" Grid.Column="0" Content="Account Type:" Width="219" Height="30"/>
+        <Label VerticalAlignment="Center" Margin="11,286,0,196" HorizontalAlignment="Left" Grid.Column="0" Content="Address:" Width="219" Height="32"/>
+        <TextBox x:Name="addressTextBox" Width="288" VerticalAlignment="Center" Text="{Binding Address, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,292,0,194" Height="28" HorizontalAlignment="Left"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="560,260,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="38" Width="138"/>
+        <Label VerticalAlignment="Center" Margin="10,326,0,157" HorizontalAlignment="Left" Grid.Column="0" Content="Age:" Width="220" Height="31"/>
+        <TextBox x:Name="ageTextBox" Width="288" VerticalAlignment="Center" Text="{Binding Age, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,327,0,159" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="11,364,0,120" HorizontalAlignment="Left" Grid.Column="0" Content="Country:" Width="219" Height="30"/>
+        <TextBox x:Name="countryTextBox" Width="288" VerticalAlignment="Center" Text="{Binding Country, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,365,0,121" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="11,85,0,397" HorizontalAlignment="Left" Grid.Column="0" Content="Customer Reg Id:" Width="219" Height="32"/>
+        <TextBox x:Name="customerRegIdTextBox" Width="288" VerticalAlignment="Center" Text="{Binding CustomerRegId, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,87,0,399" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="11,397,0,86" HorizontalAlignment="Left" Grid.Column="0" Content="DOB:" Width="219" Height="31"/>
+        <DatePicker x:Name="dOBDatePicker" VerticalAlignment="Center" SelectedDate="{Binding DOB, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,398,0,88" HorizontalAlignment="Left" Width="245" Height="28"/>
+        <Label VerticalAlignment="Center" Margin="11,129,0,355" HorizontalAlignment="Left" Grid.Column="0" Content="First Name:" Width="219" Height="30"/>
+        <TextBox x:Name="firstNameTextBox" Width="288" VerticalAlignment="Center" Text="{Binding FirstName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,129,0,357" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="11,165,0,317" HorizontalAlignment="Left" Grid.Column="0" Content="Last Name:" Width="219" Height="32"/>
+        <TextBox x:Name="lastNameTextBox" Width="288" VerticalAlignment="Center" Text="{Binding LastName, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,167,0,319" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="10,461,0,23" HorizontalAlignment="Left" Grid.Column="0" Content="Next Kin:" Width="220" Height="30"/>
+        <TextBox x:Name="nextKinTextBox" Width="288" VerticalAlignment="Center" Text="{Binding NextKin, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,462,0,24" Height="28" HorizontalAlignment="Left"/>
+        <Label VerticalAlignment="Center" Margin="10,427,0,56" HorizontalAlignment="Left" Grid.Column="0" Content="Phone No:" Width="220" Height="31"/>
+        <TextBox x:Name="phoneNoTextBox" Width="288" VerticalAlignment="Center" Text="{Binding PhoneNo, Mode=TwoWay, NotifyOnValidationError=true, ValidatesOnExceptions=true}" Margin="246,429,0,57" Height="28" HorizontalAlignment="Left"/>
+        <Button x:Name="btn_Create" Content="Create" HorizontalAlignment="Left" Margin="608,455,0,0" VerticalAlignment="Top" Width="90" Height="35" Click="btn_Create_Click"/>
+        <Button x:Name="btn_Update" Content="Update" HorizontalAlignment="Left" Margin="732,455,0,0" VerticalAlignment="Top" Width="90" Height="35" Click="btn_Create_Click"/>
+        <Button x:Name="btn_Delete" Content="Delete" HorizontalAlignment="Left" Margin="856,455,0,0" VerticalAlignment="Top" Width="90" Height="35" Click="btn_Create_Click"/>
+        <Grid x:Name="grid1" DataContext="{StaticResource customerRegViewSource}" HorizontalAlignment="Left" Margin="648,114,0,0" VerticalAlignment="Top">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+        </Grid>
+        <ComboBox x:Name="accountTypeComboBox" DisplayMemberPath="AccountType" HorizontalAlignment="Left" Height="Auto" Margin="246,266,0,226" Grid.Row="0" VerticalAlignment="Center" Width="288" >
+            <ComboBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <VirtualizingStackPanel/>
+                </ItemsPanelTemplate>
+            </ComboBox.ItemsPanel>
+            <ComboBoxItem Content="Savings"/>
+            <ComboBoxItem Content="Current"/>
+            <ComboBoxItem Content="Fixed"/>
+        </ComboBox>
+
+
+    </Grid>
+</Page>
